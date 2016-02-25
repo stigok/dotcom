@@ -4,9 +4,8 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.views.posts',
-  'myApp.components.posts',
-  'myApp.components.posts.posts-directive'
-]).
-config(['$routeProvider', function ($routeProvider) {
+  'myApp.components.posts'
+])
+.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/posts'});
 }]);
