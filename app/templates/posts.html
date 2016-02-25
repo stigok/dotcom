@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="panel panel-post" ng-repeat="post in posts">
+    <div class="panel-header">
+      <span ng-repeat="tag in post.tags" class="label label-tag">{{tag}}</span>
+    </div>
+    <div class="panel-body container-fluid">
+      <div ng-switch="post.type">
+        <div ng-switch-when="photo">
+          <img ng-repeat="photo in post.photos" ng-src="{{photo.original_size.url}}" alt="post photo" class="img-responsive">
+        </div>
+        <div ng-switch-when="text">
+          <h2 ng-show="post.title">{{post.title}}</h2>
+          {{post.body}}
+        </div>
+        <p ng-switch-default>
+          This is a [{{post.type}}] post
+        </p>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <a ng-href="{{post.post_url}}">permalink</a>
+      <!--<ul class="nav nav-pills pull-right">
+        <li><a href="#" title="reblog"><span class="glyphicon glyphicon-retweet"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+      </ul>-->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-offset-4 col-sm-4 text-center">
+      <button type="button" id="loadmore">
+        Load more
+      </button>
+    </div>
+  </div>
+</div>
