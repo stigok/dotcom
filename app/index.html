@@ -34,6 +34,7 @@
           <li><a href="#">{{message}}</a></li>
           <li><a href="#">about</a></li>
         </ul>
+
         <!--<form role="search" class="navbar-form navbar-right">
           <div class="input-group input-group"><span class="input-group-addon">#</span>
             <input type="text" placeholder="tag name" class="form-control"><span class="input-group-btn">
@@ -50,8 +51,10 @@
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
   <script src="app.js"></script>
-  <script src="posts/posts.js"></script>
-  <script src="components/posts/directives.js"></script>
+  <script src="components/data-source/service.js"></script>
+  <script src="components/tumblr-post/directive.js"></script>
+  <script src="views/posts/posts.js"></script>
 </body>
 </html>

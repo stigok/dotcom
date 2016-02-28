@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div ng-repeat="post in posts" class="panel panel-post">
+    <div ng-show="post.tags.length" class="panel-header">
+      <span ng-repeat="tag in post.tags" class="label label-tag">{{tag}}</span>
+    </div>
+    <div class="panel-body container-fluid">
+      <div ng-switch="post.type">
+        <tumblr-text-post ng-switch-when="text">
+          <h1 ng-show="post.title">{{post.title}}</h2>
+          <div ng-bind-html="htmlBody"></div>
+        </tumblrTextPost>
+        <p ng-switch-default class="warning">
+          Haven't added support for {{post.type}} posts yet, but you can be see it at <a href="{{post.post_url}}">stigok tumblr page</a> instead.
+        </p>
+      </div>
+    </div>
+    <div class="panel-footer text-right" ng-show="post.tags.length">
+      <a href="{{post.post_url}}">link to this post</a>
+      <!--<ul class="nav nav-pills pull-right">
+        <li><a href="#" title="reblog"><span class="glyphicon glyphicon-retweet"></span></a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+      </ul>-->
+    </div>
+  </div>
+</div>
