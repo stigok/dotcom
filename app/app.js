@@ -19,5 +19,8 @@ angular.module('myApp', [
       templateUrl: 'views/posts/posts.html',
       controller: 'PostsController'
     })
+    .when('/about', {
+      templateUrl: 'templates/about.html'
+    })
     .otherwise({redirectTo: '/posts'});
 }]);

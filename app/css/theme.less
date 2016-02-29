@@ -15,6 +15,27 @@ body {
   color: @color-body-text;
 }
 
+.normal-content {
+  background: #fff;
+  color: #444;
+
+  h1, h2 {
+    color: #3FB8AF;
+  }
+}
+
+#navigation ul li a {
+  margin: .5em;
+  padding: .5em;
+  border: 2px solid transparent;
+
+  &.btn-flat-weed {
+    background: #567448;
+    border-color: #93A341;
+    color: #93A341;
+  }
+}
+
 #navigation {
   background: @color-nav-bg !important;
   border: none !important;
@@ -24,14 +45,6 @@ body {
 
   a, a:active, a:hover, a:visited {
     color: @color-nav-text !important;
-  }
-
-  ul li.special a {
-    margin: .5em;
-    padding: .5em;
-    background: #567448;
-    border: 2px solid #93A341;
-    color: #93A341;
   }
 
   &.navbar a.navbar-brand {
@@ -72,6 +85,16 @@ article.post {
   .panel-body {
     background-color: #fff;
     color: #424242;
+
+    &.panel-body-photo {
+      //padding: 0;
+      //background-color: transparent;
+
+      img {
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
 
   .panel-footer {
@@ -88,11 +111,18 @@ article.post {
 
 .panel-post-weed-sessions {
   .panel-header {
-    background: #93A341;
-    border-bottom-color: #567448;
+    background-color: #567448;
+    border-bottom-color: #FFF;
+  }
+  .panel-body {
+    background-color: #93A341;
   }
   .panel-footer {
-    background-color: #E6ECD2;
+    background-color: #567448;
+
+    a {
+      color: #fff;
+    }
   }
 }
 
