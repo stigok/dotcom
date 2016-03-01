@@ -15,7 +15,7 @@
               <img ng-repeat="photo in post.photos" class="img-responsive" ng-src="{{photo.original_size.url}}" alt="post photo">
             </div>
             <p ng-switch-default="" class="warning">
-              Haven't added support for {{post.type}} posts yet, but you can be see it at the <a href="{{post.post_url}}">stigok tumblr page</a> instead.
+              Haven't added support for {{post.type}} posts yet, but you can see it at the <a href="{{post.post_url}}" target="_blank">stigok tumblr page</a> instead.
             </p>
           </div>
         </div>
