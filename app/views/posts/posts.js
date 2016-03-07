@@ -15,7 +15,7 @@ angular.module('myApp.views.posts', ['ngRoute'])
 }])
 
 .controller('PostsController', ['$http', '$scope', '$routeParams', function ($http, $scope, $routeParams) {
-  let category = $routeParams.category;
+  var category = $routeParams.category;
 
   $http.get('/data/posts-stigok.json').then(function success(res) {
     if (category) {

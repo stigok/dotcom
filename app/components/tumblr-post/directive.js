@@ -25,4 +25,13 @@ angular.module('myApp.components.tumblrPost', [])
       $scope.htmlBody = $sce.trustAsHtml($scope.$parent.post.body);
     }]
   };
+})
+
+.directive('tumblrQuotePost', function () {
+  return {
+    restrict: 'E',
+    controller: ['$scope', '$sce', function ($scope, $sce) {
+      $scope.htmlText = $sce.trustAsHtml($scope.$parent.post.text);
+    }]
+  };
 });
