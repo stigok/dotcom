@@ -1,12 +1,12 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('snippetshow', [
   'ngRoute',
   'angular-cache',
-  'myApp.views.posts',
-  'myApp.components.tumblrPost',
-  'myApp.components.dataSource'
+  'snippetshow.views.posts',
+  'snippetshow.components.tumblrPost',
+  'snippetshow.components.dataSource'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {

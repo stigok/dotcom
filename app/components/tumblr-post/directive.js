@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.components.tumblrPost', [])
+angular.module('snippetshow.components.tumblrPost', [])
 
 //.directive('tumblrPost', [function () {
 //  return {

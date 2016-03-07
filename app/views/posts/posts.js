@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.views.posts', ['ngRoute'])
+angular.module('snippetshow.views.posts', ['ngRoute'])
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider
