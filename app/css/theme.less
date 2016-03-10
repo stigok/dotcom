@@ -60,8 +60,19 @@ article.post {
   margin-bottom: 1em;
 }
 
+.banner {
+  text-align: center;
+  h2 {
+    color: #ffffff;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
 .panel-post {
-  background: transparent;
+  //background: transparent;
   padding: 0;
   margin: 0 0 1em 0;
 
@@ -109,16 +120,13 @@ article.post {
 }
 
 .panel-post-weed-sessions {
-  .panel-header {
-    background-color: #567448;
-    border-bottom-color: #FFF;
-  }
-  .panel-body {
-    background-color: #93A341;
-  }
+  border: .25em solid #fff;
+  .css-gradient(#93A341, #567448);
+  .panel-body,
+  .panel-header,
   .panel-footer {
-    background-color: #567448;
-
+    background: transparent;
+    border: none;
     a {
       color: #fff;
     }
@@ -129,4 +137,18 @@ article.post {
   padding: 1em;
   background: #fff;
   color: #000;
+}
+
+// mixins
+.css-gradient(@from: #000000, @to: #ffffff) {
+    background-color: @to;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background-image: -webkit-linear-gradient(top, @from, @to);
+    background-image: -moz-linear-gradient(top, @from, @to);
+    background-image: -o-linear-gradient(top, @from, @to);
+    background-image: -ms-linear-gradient(top, @from, @to);
+    background-image: linear-gradient(top, @from, @to);
+}
+.css-gradient(darken,@amount: 10%, @from: #000000, @to: #ffffff){
+    .css-gradient(darken(@from,@amount),darken(@to,@amount));
 }

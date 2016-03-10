@@ -1,0 +1,30 @@
+<div ng-class="{'panel-post-weed-sessions': (category === 'weed-sessions')}" class="panel panel-post">
+  <div ng-show="post.tags.length" class="panel-header">
+    <span ng-repeat="tag in post.tags" class="label label-tag">{{tag}}</span>
+  </div>
+  <div class="panel-body" ng-class="{true: 'panel-body-photo'}[post.type === 'photo']">
+    <div ng-switch="post.type">
+      <tumblr-text-post ng-switch-when="text">
+        <h1 ng-show="post.title">{{post.title}}</h2>
+        <div ng-bind-html="htmlBody"></div>
+      </tumblr-text-post>
+      <div ng-switch-when="photo">
+        <img ng-repeat="photo in post.photos" class="img-responsive" ng-src="{{photo.original_size.url}}" alt="post photo">
+      </div>
+      <tumblr-quote-post ng-switch-when="quote">
+        <blockquote ng-bind-html="htmlText"></blockquote>
+        <p>{{post.source}}</p>
+      </tumblr-quote-post>
+      <p ng-switch-default="" class="warning">
+        No support for {{post.type}} posts just yet, but you can see this post on the <a href="{{post.post_url}}" target="_blank">stigok tumblr page</a> instead.
+      </p>
+    </div>
+  </div>
+  <div class="panel-footer text-right" ng-show="post.tags.length">
+    <a href="{{post.post_url}}">permalink</a>
+    <!--<ul class="nav nav-pills pull-right">
+      <li><a href="#" title="reblog"><span class="glyphicon glyphicon-retweet"></span></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+    </ul>-->
+  </div>
+</div>

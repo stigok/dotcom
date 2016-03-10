@@ -1,7 +1,10 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <div ng-repeat="post in posts" ng-class="{'panel-post-weed-sessions': post.tags.indexOf('weed sessions') > -1}" class="panel panel-post">
+      <div class="banner" ng-show="(category === 'weed-sessions')">
+        <h3>aka #plant-insights</h3>
+      </div>
+      <div ng-repeat="post in posts" ng-class="{'panel-post-weed-sessions': (category === 'weed-sessions')}" class="panel panel-post">
         <div ng-show="post.tags.length" class="panel-header">
           <span ng-repeat="tag in post.tags" class="label label-tag">{{tag}}</span>
         </div>
@@ -18,7 +21,7 @@
               <blockquote ng-bind-html="htmlText"></blockquote>
               <p>{{post.source}}</p>
             </tumblr-quote-post>
-            <p ng-switch-default="" class="warning">
+            <p ng-switch-default class="warning">
               No support for {{post.type}} posts just yet, but you can see this post on the <a href="{{post.post_url}}" target="_blank">stigok tumblr page</a> instead.
             </p>
           </div>

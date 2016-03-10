@@ -16,6 +16,7 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
 
 .controller('PostsController', ['$http', '$scope', '$routeParams', function ($http, $scope, $routeParams) {
   var category = $routeParams.category;
+  $scope.category = category;
 
   $http.get('/data/posts-stigok.json').then(function success(res) {
     if (category) {

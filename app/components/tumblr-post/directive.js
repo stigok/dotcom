@@ -22,6 +22,15 @@ angular.module('snippetshow.components.tumblrPost', [])
 //    }]
 //  };
 //}])
+//.directive('tumblrPost', function () {
+//  return {
+//    restrict: 'E',
+//    templateUrl: '/app/components/tumblr-post/template.html',
+//    controller: ['$scope', '$routeParams', function ($scope, $routeParams) {
+//      $scope.category = $routeParams.category;
+//    }]
+//  };
+//})
 
 .directive('tumblrTextPost', function () {
   return {
