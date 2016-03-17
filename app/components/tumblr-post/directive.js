@@ -46,6 +46,7 @@ angular.module('snippetshow.components.tumblrPost', [])
     restrict: 'E',
     controller: ['$scope', '$sce', function ($scope, $sce) {
       $scope.htmlText = $sce.trustAsHtml($scope.$parent.post.text);
+      $scope.htmlSource = $sce.trustAsHtml($scope.$parent.post.source);
     }]
   };
 });

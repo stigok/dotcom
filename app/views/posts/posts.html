@@ -18,8 +18,10 @@
               <img ng-repeat="photo in post.photos" class="img-responsive" ng-src="{{photo.original_size.url}}" alt="post photo">
             </div>
             <tumblr-quote-post ng-switch-when="quote">
-              <blockquote ng-bind-html="htmlText"></blockquote>
-              <p>{{post.source}}</p>
+              <blockquote>
+                <p ng-bind-html="htmlText"></p>
+                <footer ng-bind-html="htmlSource"></footer>
+              </blockquote>
             </tumblr-quote-post>
             <p ng-switch-default class="warning">
               No support for {{post.type}} posts just yet, but you can see this post on the <a href="{{post.post_url}}" target="_blank">stigok tumblr page</a> instead.
