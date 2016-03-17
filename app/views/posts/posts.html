@@ -28,7 +28,7 @@
             <tumblr-quote-post ng-switch-when="quote">
               <blockquote>
                 <p ng-bind-html="htmlText"></p>
-                <footer ng-bind-html="htmlSource"></footer>
+                <footer ng-show="htmlSource" ng-bind-html="htmlSource"></footer>
               </blockquote>
             </tumblr-quote-post>
             <tumblr-audio-post ng-switch-when="audio">
