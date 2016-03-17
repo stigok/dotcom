@@ -17,7 +17,8 @@
   },
   "scripts": {
     "prestart": "npm install && grunt production",
-    "start": "http-server ./dist -a localhost -p 8000"
+    "start": "http-server ./dist -a localhost -p 8000",
+    "debug": "grunt watch:dev"
   },
   "dependencies": {
     "grunt": "^0.4.5",
