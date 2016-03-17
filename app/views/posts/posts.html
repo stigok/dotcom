@@ -14,6 +14,14 @@
               <h1 ng-show="post.title">{{post.title}}</h2>
               <div ng-bind-html="htmlBody"></div>
             </tumblr-text-post>
+            <tumblr-link-post ng-switch-when="link">
+              <h1 ng-show="post.title"><a href="{{post.url}}" target="_blank">{{post.title}} <sup><span class="glyphicon glyphicon-new-window"></span></sup></a></h2>
+              <blockquote>
+                <p>{{post.excerpt}}</p>
+                <footer ng-show="post.author">{{post.author}}</footer>
+              </blockquote>
+              <p ng-bind-html="htmlDescription"></p>
+            </tumblr-link-post>
             <div ng-switch-when="photo">
               <img ng-repeat="photo in post.photos" class="img-responsive" ng-src="{{photo.original_size.url}}" alt="post photo">
             </div>

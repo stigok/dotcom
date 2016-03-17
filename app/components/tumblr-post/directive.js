@@ -41,6 +41,15 @@ angular.module('snippetshow.components.tumblrPost', [])
   };
 })
 
+.directive('tumblrLinkPost', function () {
+  return {
+    restrict: 'E',
+    controller: ['$scope', '$sce', function ($scope, $sce) {
+      $scope.htmlDescription = $sce.trustAsHtml($scope.$parent.post.description);
+    }]
+  };
+})
+
 .directive('tumblrQuotePost', function () {
   return {
     restrict: 'E',
