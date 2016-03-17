@@ -3,7 +3,6 @@
 // Declare app level module which depends on views, and components
 angular.module('snippetshow', [
   'ngRoute',
-  'angular-cache',
   'snippetshow.views.posts',
   'snippetshow.components.tumblrPost',
   'snippetshow.components.dataSource'

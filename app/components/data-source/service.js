@@ -1,12 +1,8 @@
 'use strict';
 
-angular.module('snippetshow.components.dataSource', ['angular-cache'])
+angular.module('snippetshow.components.dataSource')
 
-.config(function (CacheFactoryProvider) {
-  angular.extend(CacheFactoryProvider.defaults, {maxAge: 15 * 60 * 1000});
-})
-
-.service('DataSource', function (CacheFactory, $http) {
+.service('DataSource', function ($http) {
   return {
     posts: function () {
       return $http.get('/api/posts.json');
