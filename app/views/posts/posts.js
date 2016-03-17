@@ -19,7 +19,7 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
   $scope.category = category;
 
   DataSource.posts().then(function success(res) {
-    var posts = res.data.response;
+    var posts = res.data.response.posts;
 
     if (category) {
       category = category.replace('-', ' ');
