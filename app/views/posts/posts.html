@@ -31,6 +31,10 @@
                 <footer ng-bind-html="htmlSource"></footer>
               </blockquote>
             </tumblr-quote-post>
+            <tumblr-audio-post ng-switch-when="audio">
+              <h3>Audio post</h2>
+              <a href="{{post.source_url}}" target="_blank">Open in external player</a>
+            </tumblr-audio-post>
             <p ng-switch-default class="warning">
               No support for {{post.type}} posts just yet, but you can see this post on the <a href="{{post.post_url}}" target="_blank">stigok tumblr page</a> instead.
             </p>
