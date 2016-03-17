@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('snippetshow.components.dataSource')
+angular.module('snippetshow.components.dataSource', [])
 
-.service('DataSource', function ($http) {
+.service('DataSource', ['$http', function ($http) {
   return {
     posts: function () {
       return $http.get('/api/posts.json');
     }
   };
-});
+}]);
