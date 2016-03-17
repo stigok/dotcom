@@ -85,6 +85,10 @@ module.exports = function (grunt) {
         title: 'Grunt Task Complete',
         message: 'Task: compile-less',
         image: path.join(__dirname, '/grunt-growl.gif')
+      },
+      build: {
+        title: 'Grunt build complete!',
+        image: path.join(__dirname, '/grunt-growl.gif')
       }
     },
 
@@ -111,6 +115,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist']);
-  grunt.registerTask('development', ['less', 'uglify:dev', 'copy']);
+  grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist', 'growl:build']);
+  grunt.registerTask('development', ['less', 'uglify:dev', 'copy', 'growl:build']);
 };
