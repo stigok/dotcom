@@ -27,10 +27,21 @@ module.exports = function (grunt) {
         banner: banner,
         footer: footer,
         //beautify: true,
-        //screwIE8: true,
+        screwIE8: true,
         mangle: false
       },
-      js: {
+      dist: {
+        src: [
+          'app/components/**/*.js',
+          'app/views/**/*.js',
+          'app/app.js'
+        ],
+        dest: 'dist/js/snippetshow.min.js'
+      },
+      dev: {
+        options: {
+          beautify: true
+        },
         src: [
           'app/components/**/*.js',
           'app/views/**/*.js',
@@ -59,6 +70,13 @@ module.exports = function (grunt) {
           spawn: false,
           atBegin: true
         }
+      },
+      dev: {
+        files: ['Gruntfile.js', 'app/**/*'],
+        tasks: ['development'],
+        options: {
+          atBegin: true
+        }
       }
     },
 
@@ -73,8 +91,13 @@ module.exports = function (grunt) {
     copy: {
       dist: {
         files: [
-          {expand: true, cwd: 'app/', src: ['**/*.html'], dest: 'dist/'},
+          {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
           {expand: false, src: 'app/css/theme.css', dest: 'dist/css/theme.css'}
+        ]
+      },
+      dev: {
+        files: [
+          {expand: true, cwd: 'app/', src: ['api/**/*.json'], dest: 'dist/'}
         ]
       }
     }
@@ -88,10 +111,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['auto-compile-less']);
-  grunt.registerTask('compile-less', ['less']);
-  //grunt.registerTask('production', ['less', 'concat', 'copy']);
-  grunt.registerTask('production', ['less', 'uglify', 'copy']);
-
-  grunt.registerTask('auto-compile-less', ['watch:less']);
+  grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist']);
+  grunt.registerTask('development', ['less', 'uglify:dev', 'copy']);
 };
