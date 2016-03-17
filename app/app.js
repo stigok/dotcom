@@ -1,12 +1,25 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('snippetshow', [
   'ngRoute',
-  'myApp.views.posts',
-  'myApp.components.posts',
-  'myApp.components.posts.posts-directive'
-]).
-config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/posts'});
+  'snippetshow.views.posts',
+  'snippetshow.components.tumblrPost',
+  'snippetshow.components.dataSource'
+])
+
+.config(['$routeProvider', function ($routeProvider) {
+  $routeProvider
+    .when('/posts/:category/:id', {
+      templateUrl: 'views/posts/postDetails.html',
+      controller: 'PostDetailViewController'
+    })
+    .when('/posts/:category?', {
+      templateUrl: 'views/posts/posts.html',
+      controller: 'PostsController'
+    })
+    .when('/about', {
+      templateUrl: 'templates/about.html'
+    })
+    .otherwise({redirectTo: '/posts'});
 }]);
