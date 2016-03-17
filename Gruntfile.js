@@ -47,17 +47,6 @@ module.exports = function (grunt) {
           'app/views/**/*.js',
           'app/app.js'
         ],
-        dest: 'dist/js/snippetshow.min.js'
-      }
-    },
-
-    concat: {
-      dev: {
-        src: [
-          'app/components/**/*.js',
-          'app/views/**/*.js',
-          'app/app.js'
-        ],
         dest: 'dist/js/snippetshow.js'
       }
     },
@@ -104,6 +93,35 @@ module.exports = function (grunt) {
           {expand: true, cwd: 'app/', src: ['api/**/*.json'], dest: 'dist/'}
         ]
       }
+    },
+
+    replace: {
+      prod: {
+        options: {
+          patterns: [
+            {
+              match: 'js-extension',
+              replacement: 'min.js'
+            }
+          ]
+        },
+        files: [
+          {src: 'dist/index.html', dest: 'dist/index.html'}
+        ]
+      },
+      dev: {
+        options: {
+          patterns: [
+            {
+              match: 'js-extension',
+              replacement: 'js'
+            }
+          ]
+        },
+        files: [
+          {src: 'dist/index.html', dest: 'dist/index.html'}
+        ]
+      }
     }
   });
 
@@ -113,7 +131,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-growl');
+  grunt.loadNpmTasks('grunt-replace');
 
-  grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist', 'growl:build']);
-  grunt.registerTask('development', ['less', 'uglify:dev', 'copy', 'growl:build']);
+  grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist', 'replace:prod', 'growl:build']);
+  grunt.registerTask('development', ['less', 'uglify:dev', 'copy', 'replace:dev', 'growl:build']);
 };

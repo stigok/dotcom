@@ -9,14 +9,14 @@
     "grunt-contrib-less": "^1.2.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-growl": "^0.1.5"
+    "grunt-growl": "^0.1.5",
+    "grunt-replace": "^0.11.0"
   },
   "peerDependencies": {
     "http-server": "^0.6.1"
   },
   "scripts": {
-    "prestart-void": "npm install",
-    "postinstall": "grunt production",
+    "prestart": "npm install && grunt production",
     "start": "http-server ./dist -a localhost -p 8000"
   },
   "dependencies": {
