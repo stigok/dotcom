@@ -107,13 +107,12 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-growl');
-  grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-growl');
 
   grunt.registerTask('production', ['less', 'uglify:dist', 'copy:dist', 'growl:build']);
   grunt.registerTask('development', ['less', 'uglify:dev', 'copy', 'growl:build']);
