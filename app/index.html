@@ -1,40 +1,30 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="snippetshow" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="snippetshow" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="snippetshow" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="snippetshow" class="no-js"> <!--<![endif]-->
+<html lang="en" ng-app="snippetshow">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>stigok.com</title>
   <meta name="description" content="stigok.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
   <link rel="stylesheet" href="css/theme.css">
-  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="bower_components/underscore/underscore-min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    console.log('Hint #42: Make sure LESS compiled')
-  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 </head>
 <body>
   <ng-include src="'templates/navigation.html'"></ng-include>
 
   <ng-view></ng-view>
 
-  <div class="text-center">stigok.com v0.0.7</div>
+  <div class="text-center">stigok.com &lt;21</div>
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-cache/dist/angular-cache.js"></script>
-  <script src="app.js"></script>
-  <script src="components/data-source/service.js"></script>
-  <script src="components/tumblr-post/directive.js"></script>
-  <script src="views/posts/posts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-cache/4.5.0/angular-cache.js"></script>
+  <script src="js/snippetshow.min.js"></script>
 </body>
 </html>
