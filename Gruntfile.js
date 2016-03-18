@@ -102,11 +102,16 @@ module.exports = function (grunt) {
             {
               match: 'js-extension',
               replacement: 'min.js'
+            },
+            {
+              match: 'apiEndpoint',
+              replacement: 'http://api.tumblr.stigok.com'
             }
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'}
+          {src: 'dist/index.html', dest: 'dist/index.html'},
+          {src: 'dist/js/snippetshow.min.js', dest: 'dist/js/snippetshow.min.js'}
         ]
       },
       dev: {
@@ -115,11 +120,16 @@ module.exports = function (grunt) {
             {
               match: 'js-extension',
               replacement: 'js'
+            },
+            {
+              match: 'apiEndpoint',
+              replacement: 'api'
             }
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'}
+          {src: 'dist/index.html', dest: 'dist/index.html'},
+          {src: 'dist/js/snippetshow.js', dest: 'dist/js/snippetshow.js'}
         ]
       }
     }
