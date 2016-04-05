@@ -15,6 +15,12 @@
   "peerDependencies": {
     "http-server": "^0.6.1"
   },
+  "eslintConfig": {
+    "globals": {
+      "_": true,
+      "angular": true
+    }
+  },
   "scripts": {
     "prestart": "npm install && grunt production",
     "start": "http-server ./dist -a localhost -p 8000",
