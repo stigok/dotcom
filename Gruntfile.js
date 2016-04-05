@@ -123,7 +123,7 @@ module.exports = function (grunt) {
             },
             {
               match: 'apiEndpoint',
-              replacement: 'api'
+              replacement: 'http://thing.sshow-84:42001/api/tumblr'
             }
           ]
         },
