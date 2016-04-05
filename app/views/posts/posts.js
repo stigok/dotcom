@@ -15,38 +15,14 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
 }])
 
 .controller('PostsController', ['$scope', '$routeParams', 'DataSource', function ($scope, $routeParams, DataSource) {
-  var category = $routeParams.category;
-  $scope.category = category;
-
-  DataSource.posts().then(function success(res) {
-    var posts = res.data.response.posts;
-
-    if (category) {
-      category = category.replace('-', ' ');
+  $scope.category = $routeParams.category;
+  var posts = DataSource.query(function () {
+    if ($scope.category) {
       $scope.posts = _.filter(posts, function (post) {
-        return _.contains(post.tags, category);
+        return post.tags.indexOf($scope.category) !== -1;
       });
     } else {
       $scope.posts = posts;
     }
   });
 }]);
-
-//.controller('PostDetailsController', ['$http', '$scope', '$routeParams', function ($http, $scope, $routeParams) {
-//  let id = $routeParams.id;
-//
-//  $http({
-//    method: 'GET',
-//    url: '/data/posts-stigok.json'
-//  }).then(function success(res) {
-//    if (category) {
-//      category = category.replace('-', ' ');
-//      $scope.posts = _.filter(res.data.response.posts, function (post) {
-//        return _.contains(post.tags, category);
-//      });
-//    } else {
-//      $scope.posts = res.data.response.posts;
-//    }
-//  });
-//}]);
-//
