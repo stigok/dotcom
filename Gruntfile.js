@@ -92,6 +92,17 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'app/', src: ['api/**/*.json'], dest: 'dist/'}
         ]
+      },
+      vendor: {
+        files: [
+          {
+            expand: true,
+            src: [
+              'node_modules/normalize.css/normalize.css'
+            ],
+            dest: 'dist/css/vendor/'
+          }
+        ]
       }
     },
 
