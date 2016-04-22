@@ -2,51 +2,58 @@
 
 angular.module('snippetshow.components.tumblrPost', [])
 
-//.directive('tumblrPost', [function () {
-//  return {
-//    restrict: 'E',
-//    controller: ['$scope', '$sce', function ($scope, $sce) {
-//      $scope.post = $scope.$parent.post;
-//      $scope.type = $scope.post.type;
-//
-//      //if ($scope.post.format === 'markdown') {
-//      //  $scope.body = $scope.post.body;
-//      //}
-//
-//      if ($scope.post.type === 'text') {
-//        $scope.htmlContent = $sce.trustAsHtml($scope.post.body);
-//      }
-//      if ($scope.post.type === 'quote') {
-//        $scope.htmlContent = $sce.trustAsHtml($scope.post.text);
-//      }
-//    }]
-//  };
-//}])
-//.directive('tumblrPost', function () {
-//  return {
-//    restrict: 'E',
-//    templateUrl: '/app/components/tumblr-post/template.html',
-//    controller: ['$scope', '$routeParams', function ($scope, $routeParams) {
-//      $scope.category = $routeParams.category;
-//    }]
-//  };
-//})
-
-.directive('tumblrTextPost', function () {
+.directive('tumblrPost', function () {
   return {
     restrict: 'E',
-    controller: ['$scope', '$sce', function ($scope, $sce) {
-      $scope.htmlBody = $sce.trustAsHtml($scope.$parent.post.body);
-    }]
+    scope: {
+      post: '<'
+    },
+    controller: function ($scope, $compile, $element) {
+      var tag = 'tumblr-' + $scope.post.type + '-post';
+      var el = $compile('<' + tag + '></' + tag + '>')($scope);
+      console.log(el);
+      $element.html(el);
+    }
   };
 })
 
-.directive('tumblrLinkPost', function () {
+.factory('TumblrPostDirective', function () {
+  return function (postType) {
+    return {
+      restrict: 'E',
+      require: '^^tumblrPost',
+      templateUrl: 'components/tumblr-post/' + postType + '.template.html'
+    };
+  };
+})
+
+.directive('tumblrTextPost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('text');
+})
+
+.directive('tumblrLinkPost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('link');
+})
+
+.directive('tumblrAudioPost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('audio');
+})
+
+.directive('tumblrPhotoPost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('photo');
+})
+
+.directive('tumblrQuotePost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('quote');
+})
+
+.directive('tumblrPostBody', function () {
   return {
     restrict: 'E',
-    controller: ['$scope', '$sce', function ($scope, $sce) {
-      $scope.htmlDescription = $sce.trustAsHtml($scope.$parent.post.description);
-    }]
+    require: '^^tumblrPost',
+    link: function (scope, element) {
+      element.html(scope.post.body);
+    }
   };
 })
 
@@ -74,15 +81,5 @@ angular.module('snippetshow.components.tumblrPost', [])
       iframe.attr('src', 'https://w.soundcloud.com/player/?url=' + url);
       SC.Widget(iframe.get(0));
     }
-  };
-})
-
-.directive('tumblrQuotePost', function () {
-  return {
-    restrict: 'E',
-    controller: ['$scope', '$sce', function ($scope, $sce) {
-      $scope.htmlText = $sce.trustAsHtml($scope.$parent.post.text);
-      $scope.htmlSource = $sce.trustAsHtml($scope.$parent.post.source);
-    }]
   };
 });

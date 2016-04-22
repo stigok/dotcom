@@ -1,0 +1,10 @@
+<h1 ng-show="post.title"><a href="{{post.url}}" target="_blank">{{post.title}} <sup><span class="glyphicon glyphicon-new-window"></span></sup></a></h2>
+<blockquote ng-show="post.excerpt || post.author">
+  <p ng-show="post.excerpt">{{post.excerpt}}</p>
+  <footer ng-show="post.author">{{post.author}}</footer>
+</blockquote>
+<p>{{post.description}}</p>
+<pre>
+  Link image url: {{post.link_image}}
+</pre>
+<tumblr-post-body></tumblr-post-body>
