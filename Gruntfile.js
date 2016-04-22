@@ -85,6 +85,7 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
+          {expand: true, cwd: 'include/js/', src: '*.js', dest: 'dist/js/vendor/'},
           {expand: false, src: 'app/css/theme.css', dest: 'dist/css/theme.css'}
         ]
       },
