@@ -13,16 +13,16 @@ angular.module('snippetshow', [
 
 .config(['$routeProvider', function ($routeProvider) {
   $routeProvider
-    .when('/posts/:category/:id', {
-      templateUrl: 'views/posts/postDetails.html',
-      controller: 'PostDetailViewController'
-    })
-    .when('/posts/:category?', {
-      templateUrl: 'views/posts/posts.html',
+    .when('/posts', {
       controller: 'PostsController'
     })
     .when('/about', {
       templateUrl: 'templates/about.html'
     })
     .otherwise({redirectTo: '/posts'});
-}]);
+}])
+
+.config(function ($showdownProvider) {
+  $showdownProvider.setOption('noHeaderId', true);
+  $showdownProvider.setOption('headerLevelStart', 2);
+});
