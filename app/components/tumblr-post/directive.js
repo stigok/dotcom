@@ -52,8 +52,17 @@ angular.module('snippetshow.components.tumblrPost', [])
     restrict: 'A',
     require: '^^tumblrPost',
     link: function (scope, element) {
-      var html = $showdown.makeHtml(scope.post.body);
-      element.html(html);
+      element.html($showdown.makeHtml(scope.post.body));
+      element.find('pre code').each(function (i, el) {
+        hljs.highlightBlock(el);
+      });
+
+      element.find('code').each(function (i, el) {
+        el = angular.element(el);
+        if (!el.hasClass('hljs')) {
+          el.addClass('inline-code');
+        }
+      });
     }
   };
 })
