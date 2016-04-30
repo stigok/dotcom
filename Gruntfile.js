@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = function (grunt) {
   const today = grunt.template.today('yyyymmddhhMMss');
   const banner = '/*! snippetshow, bro ' + today + ' %> */\n';
-  const footer = '/* 110v3<3 */';
+  const footer = '/* 1x10v3<21 */';
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
