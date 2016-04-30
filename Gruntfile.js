@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = function (grunt) {
   const today = grunt.template.today('yyyymmddhhMMss');
   const banner = '/*! snippetshow, bro ' + today + ' %> */\n';
-  const footer = '/* 110v3<3 */';
+  const footer = '/* 1x10v3<21 */';
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -85,7 +85,11 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
-          {expand: false, src: 'app/css/theme.css', dest: 'dist/css/theme.css'}
+          {expand: true, cwd: 'include/js/', src: '*.js', dest: 'dist/js/vendor/'},
+          {src: 'app/css/theme.css', dest: 'dist/css/theme.css'},
+          {src: 'node_modules/normalize.css/normalize.css', dest: 'dist/css/vendor/normalize.css'},
+          {src: 'bower_components/showdown/dist/showdown.min.js', dest: 'dist/js/vendor/showdown.min.js'},
+          {src: 'bower_components/ng-showdown/dist/ng-showdown.min.js', dest: 'dist/js/vendor/ng-showdown.min.js'}
         ]
       },
       dev: {
@@ -134,7 +138,7 @@ module.exports = function (grunt) {
             },
             {
               match: 'apiEndpoint',
-              replacement: 'http://thing.sshow-84:42001/api/tumblr'
+              replacement: 'http://tumblrapi.sshow-7/api/tumblr'
             }
           ]
         },

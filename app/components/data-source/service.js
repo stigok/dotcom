@@ -2,6 +2,12 @@
 
 angular.module('snippetshow.components.dataSource', [])
 
-.service('DataSource', ['$resource', function ($resource) {
-  return $resource('@@apiEndpoint/posts', {});
+.service('DataSource', ['$http', function ($http) {
+  return {
+    query: function () {
+      return $http.get('@@apiEndpoint/posts').then(function (response) {
+        return response.data;
+      });
+    }
+  };
 }]);
