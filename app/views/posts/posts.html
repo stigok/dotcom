@@ -1,29 +1,20 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="banner" ng-show="(category === 'weed-sessions')">
-        <h3>aka #plant-insights</h3>
+<div class="row">
+  <div class="col s12 post" ng-class="'tumblr-' + post.type + '-post'" ng-repeat="post in posts">
+    <div class="card indigo lighten-5">
+      <div class="card-content">
+        <div class="tags">
+          <a ng-repeat="tag in post.tags" href="" class="label-tag white z-depth-2">{{tag}}</a>
+        </div>
+        <tumblr-post post="post" post-type="{{post.type}}"></tumblr-post>
       </div>
-      <div ng-repeat="post in posts" class="panel panel-post">
-        <div ng-show="post.tags.length" class="panel-header">
-          <span ng-repeat="tag in post.tags" class="label label-tag">{{tag}}</span>
+      <!--<div class="card-action">
+        <div class="right">
+          <a href="{{post.post_url}}" title="permalink">
+            permalink
+            <i class="tiny material-icons">open_in_new</i>
+          </a>
         </div>
-        <div class="panel-body" ng-class="{true: 'panel-body-photo'}[post.type === 'photo']">
-          <tumblr-post post="post" post-type="{{post.type}}"></tumblr-post>
-        </div>
-        <div class="panel-footer text-right" ng-show="post.tags.length">
-          <a href="{{post.post_url}}">permalink</a>
-          <!--<ul class="nav nav-pills pull-right">
-            <li><a href="#" title="reblog"><span class="glyphicon glyphicon-retweet"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
-          </ul>-->
-        </div>
-      </div>
-      <div class="panel panel-post" ng-show="posts.length === 0">
-        <div class="panel-body text-center">
-          Nothing fresh to show in this category right now...
-        </div>
-      </div>
+      </div>-->
     </div>
   </div>
 </div>

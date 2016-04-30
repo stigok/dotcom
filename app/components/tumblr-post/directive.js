@@ -11,18 +11,18 @@ angular.module('snippetshow.components.tumblrPost', [])
     controller: function ($scope, $compile, $element) {
       var tag = 'tumblr-' + $scope.post.type + '-post';
       var el = $compile('<' + tag + '></' + tag + '>')($scope);
-      console.log(el);
       $element.html(el);
     }
   };
 })
 
 .factory('TumblrPostDirective', function () {
-  return function (postType) {
+  return function (postType, link) {
     return {
       restrict: 'E',
       require: '^^tumblrPost',
-      templateUrl: 'components/tumblr-post/' + postType + '.template.html'
+      templateUrl: 'components/tumblr-post/' + postType + '.template.html',
+      link: link
     };
   };
 })
@@ -39,8 +39,23 @@ angular.module('snippetshow.components.tumblrPost', [])
   return new TumblrPostDirective('audio');
 })
 
+.directive('tumblrVideoPost', function (TumblrPostDirective) {
+  return new TumblrPostDirective('video', function (scope, element) {
+    if (!scope.post.player || !scope.post.player.length) {
+      element.html('Unable to load media player');
+      return;
+    }
+    var player = scope.post.player[scope.post.player.length - 1].embed_code;
+    element.html(player);
+  });
+})
+
 .directive('tumblrPhotoPost', function (TumblrPostDirective) {
-  return new TumblrPostDirective('photo');
+  return new TumblrPostDirective('photo', function (scope, element) {
+    var el = element.find('.parallax');
+    console.log(el);
+    $(el).parallax();
+  });
 })
 
 .directive('tumblrQuotePost', function (TumblrPostDirective) {

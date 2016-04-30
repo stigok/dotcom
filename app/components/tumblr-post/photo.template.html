@@ -1,2 +1,3 @@
-<img ng-repeat="photo in post.photos" class="img-responsive" ng-src="{{photo.original_size.url}}" alt="post photo">
-<tumblr-post-body></tumblr-post-body>
+<h1>{{post.photos[0].original_size.url}}</h1>
+<img ng-repeat="photo in post.photos track by $index" class="responsive-img" ng-src="{{photo.original_size.url}}" alt="post photo #{{$index}}">
+<!--<tumblr-post-body></tumblr-post-body>-->

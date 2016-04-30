@@ -1,17 +1,43 @@
-.panel-post {
-  h1, h2, h3, h4, h5 {
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-  p, blockquote {
-    &:last-child {
-      margin-bottom: 0;
-    }
+.inline-code {
+  background-color: #fff;
+  padding: 1px 5px;
+}
+
+.tags {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  text-align: right;
+
+  .label-tag {
+    display: inline-block;
+    padding: .25em;
+
+    margin-left: .5em;
+    &:first-child { margin-left: 0; }
   }
 }
 
-// New window icon within links
-sup .glyphicon-new-window {
-  font-size: 70%;
+.card-action {
+  .label-tag {
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: .25em;
+    display: inline-block;
+  }
+
+  .label-tag {
+    margin-left: 1em;
+    &:first-child { margin-left: 0 }
+  }
+}
+
+.card-content {
+/*  h1 { font-size: 2.4em; }
+  h2 { font-size: 1.8em; }
+  h3 { font-size: 1.2em; }*/
+
+  h1:first-child {
+    margin-top: 0;
+  }
 }
