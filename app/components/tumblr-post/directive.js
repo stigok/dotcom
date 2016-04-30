@@ -41,12 +41,14 @@ angular.module('snippetshow.components.tumblrPost', [])
 
 .directive('tumblrVideoPost', function (TumblrPostDirective) {
   return new TumblrPostDirective('video', function (scope, element) {
-    if (!scope.post.player || !scope.post.player.length) {
-      element.html('Unable to load media player');
-      return;
+    var container = angular.element('<div class="video-container" />');
+    var embed = 'Unable to load media player';
+    if (scope.post.video_type === 'youtube') {
+      var src = 'https://www.youtube.com/embed/' + scope.post.video.youtube.video_id;
+      embed = '<iframe width="100%" height="420" src="' + src + '" frameborder="0" allowfullscreen></iframe>';
     }
-    var player = scope.post.player[scope.post.player.length - 1].embed_code;
-    element.html(player);
+    container.append(embed);
+    element.html(container);
   });
 })
 
