@@ -22,7 +22,7 @@
     }
   },
   "scripts": {
-    "prestart": "npm install && grunt production",
+    "prestart": "npm install && bower install && grunt production",
     "start": "http-server ./dist -a localhost -p 8000",
     "debug": "grunt watch:dev"
   },

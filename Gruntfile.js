@@ -86,7 +86,10 @@ module.exports = function (grunt) {
         files: [
           {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
           {expand: true, cwd: 'include/js/', src: '*.js', dest: 'dist/js/vendor/'},
-          {expand: false, src: 'app/css/theme.css', dest: 'dist/css/theme.css'}
+          {src: 'app/css/theme.css', dest: 'dist/css/theme.css'},
+          {src: 'node_modules/normalize.css/normalize.css', dest: 'dist/css/vendor/normalize.css'},
+          {src: 'bower_components/showdown/dist/showdown.min.js', dest: 'dist/js/vendor/showdown.min.js'},
+          {src: 'bower_components/ng-showdown/dist/ng-showdown.min.js', dest: 'dist/js/vendor/ng-showdown.min.js'}
         ]
       },
       dev: {

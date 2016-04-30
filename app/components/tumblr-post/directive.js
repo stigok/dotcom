@@ -47,12 +47,13 @@ angular.module('snippetshow.components.tumblrPost', [])
   return new TumblrPostDirective('quote');
 })
 
-.directive('tumblrPostBody', function () {
+.directive('tumblrPostBody', function ($showdown) {
   return {
-    restrict: 'E',
+    restrict: 'A',
     require: '^^tumblrPost',
     link: function (scope, element) {
-      element.html(scope.post.body);
+      var html = $showdown.makeHtml(scope.post.body);
+      element.html(html);
     }
   };
 })

@@ -1,0 +1,14 @@
+{
+  "name": "stigokdotcom",
+  "description": "",
+  "main": "",
+  "authors": [
+    "stigok <stig@stigok.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/stigok/dotcom",
+  "private": true,
+  "dependencies": {
+    "ng-showdown": "^1.1.0"
+  }
+}

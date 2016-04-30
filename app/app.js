@@ -4,9 +4,11 @@
 angular.module('snippetshow', [
   'ngRoute',
   'ngResource',
+  'ngSanitize',
   'snippetshow.views.posts',
   'snippetshow.components.tumblrPost',
-  'snippetshow.components.dataSource'
+  'snippetshow.components.dataSource',
+  'ng-showdown'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {
