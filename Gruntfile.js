@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = function (grunt) {
   const today = grunt.template.today('yyyymmddhhMMss');
   const banner = '/*! snippetshow, bro ' + today + ' %> */\n';
-  const footer = '/* 110v3<3 */';
+  const footer = '/* 1x10v3<21 */';
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -85,12 +85,27 @@ module.exports = function (grunt) {
       dist: {
         files: [
           {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
-          {expand: false, src: 'app/css/theme.css', dest: 'dist/css/theme.css'}
+          {expand: true, cwd: 'include/js/', src: '*.js', dest: 'dist/js/vendor/'},
+          {src: 'app/css/theme.css', dest: 'dist/css/theme.css'},
+          {src: 'node_modules/normalize.css/normalize.css', dest: 'dist/css/vendor/normalize.css'},
+          {src: 'bower_components/showdown/dist/showdown.min.js', dest: 'dist/js/vendor/showdown.min.js'},
+          {src: 'bower_components/ng-showdown/dist/ng-showdown.min.js', dest: 'dist/js/vendor/ng-showdown.min.js'}
         ]
       },
       dev: {
         files: [
           {expand: true, cwd: 'app/', src: ['api/**/*.json'], dest: 'dist/'}
+        ]
+      },
+      vendor: {
+        files: [
+          {
+            expand: true,
+            src: [
+              'node_modules/normalize.css/normalize.css'
+            ],
+            dest: 'dist/css/vendor/'
+          }
         ]
       }
     },
@@ -102,11 +117,16 @@ module.exports = function (grunt) {
             {
               match: 'js-extension',
               replacement: 'min.js'
+            },
+            {
+              match: 'apiEndpoint',
+              replacement: 'http://api.tumblr.stigok.com'
             }
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'}
+          {src: 'dist/index.html', dest: 'dist/index.html'},
+          {src: 'dist/js/snippetshow.min.js', dest: 'dist/js/snippetshow.min.js'}
         ]
       },
       dev: {
@@ -115,11 +135,16 @@ module.exports = function (grunt) {
             {
               match: 'js-extension',
               replacement: 'js'
+            },
+            {
+              match: 'apiEndpoint',
+              replacement: 'http://tumblrapi.sshow-7/api/tumblr'
             }
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'}
+          {src: 'dist/index.html', dest: 'dist/index.html'},
+          {src: 'dist/js/snippetshow.js', dest: 'dist/js/snippetshow.js'}
         ]
       }
     }

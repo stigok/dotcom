@@ -1,154 +1,16 @@
-@color-nav-bg: #FF3D7F;
-@color-nav-text: #FFF;
-@color-nav-light: #FF9E9D;
-
-@color-border: #7FC7AF;
-@color-body-bg: #333;
-@color-body-text: #FFF;
-@color-header-text: #FFF;
-@color-gray: #DAD8A7;
-
-@import (inline) './vendor/html5boilerplate.css';
-
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
-body {
-  background-color: @color-body-bg;
-  color: @color-body-text;
+html {
+  font-size: 10px !important;
 }
 
-.normal-content {
-  background: #fff;
-  color: #444;
-
-  h1, h2 {
-    color: #3FB8AF;
-  }
+nav {
+  animation: headerpulse 4.20s infinite alternate;
 }
 
-#navigation ul li a {
-  margin: .5em;
-  padding: .5em;
-  border: 2px solid transparent;
-
-  &.btn-flat-weed {
-    background: #567448;
-    border-color: #93A341;
-    color: #93A341;
-  }
+.container {
+  margin-top: 1em;
 }
 
-#navigation {
-  background: @color-nav-bg !important;
-  border: none !important;
-  border-bottom: .5em solid @color-nav-light !important;
-  color: @color-nav-text;
-  border-radius: 0 !important;
-
-  a, a:active, a:hover, a:visited {
-    color: @color-nav-text !important;
-  }
-
-  &.navbar a.navbar-brand {
-    font-weight: bold;
-  }
-}
-
-#mainview h1{
-  margin-top: 0;
-}
-
-article.post {
-  margin-bottom: 1em;
-}
-
-.banner {
-  text-align: center;
-  h2 {
-    color: #ffffff;
-  }
-}
-
-.panel-post {
-  //background: transparent;
-  padding: 0;
-  margin: 0 0 1em 0;
-
-  .panel-header {
-    padding: .5em;
-    background: #3FB8AF;
-    border-bottom: .25em solid #7FC7AF;
-
-    .label-tag {
-      border: 2px solid #FFF;
-      color: #fff;
-      display: inline-block;
-
-      & + .label-tag {
-        margin-left: .5em;
-      }
-    }
-  }
-
-  .panel-body {
-    background-color: #fff;
-    color: #424242;
-
-    &.panel-body-photo {
-      //padding: 0;
-      //background-color: transparent;
-
-      img {
-        margin: 0 auto;
-        display: block;
-      }
-    }
-  }
-
-  .panel-footer {
-    background-color: #fafafa;
-    color: #000;
-    padding: 1em;
-
-    .row div {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
-.panel-post-weed-sessions {
-  border: .25em solid #fff;
-  .css-gradient(#93A341, #567448);
-  .panel-body,
-  .panel-header,
-  .panel-footer {
-    background: transparent;
-    border: none;
-    a {
-      color: #fff;
-    }
-  }
-}
-
-#loadmore {
-  padding: 1em;
-  background: #fff;
-  color: #000;
-}
-
-// mixins
-.css-gradient(@from: #000000, @to: #ffffff) {
-    background-color: @to;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
-    background-image: -webkit-linear-gradient(top, @from, @to);
-    background-image: -moz-linear-gradient(top, @from, @to);
-    background-image: -o-linear-gradient(top, @from, @to);
-    background-image: -ms-linear-gradient(top, @from, @to);
-    background-image: linear-gradient(top, @from, @to);
-}
-.css-gradient(darken,@amount: 10%, @from: #000000, @to: #ffffff){
-    .css-gradient(darken(@from,@amount),darken(@to,@amount));
-}
-
+@import 'overrides.less';
 @import 'posts.less';
+@import 'animations.less';
+@import 'mixins.less';

@@ -1,0 +1,4 @@
+<div class="card-image">
+  <img ng-repeat="photo in post.photos track by $index" ng-src="{{photo.original_size.url}}" alt="post photo #{{$index}}">
+  <span class="card-title">{{post.caption}}</span>
+</div>

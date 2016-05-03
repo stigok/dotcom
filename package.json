@@ -15,14 +15,22 @@
   "peerDependencies": {
     "http-server": "^0.6.1"
   },
+  "eslintConfig": {
+    "globals": {
+      "_": true,
+      "angular": true
+    }
+  },
   "scripts": {
-    "prestart": "npm install && grunt production",
+    "prestart": "npm install && bower install && grunt production",
     "start": "http-server ./dist -a localhost -p 8000",
     "debug": "grunt watch:dev"
   },
   "dependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-uglify": "^1.0.0",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "materialize-css": "^0.97.6",
+    "normalize.css": "^4.1.1"
   }
 }
