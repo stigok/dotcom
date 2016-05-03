@@ -1,3 +1,68 @@
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    max-width: none;
+    margin-top: 0;
+  }
+
+  .card {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.tumblr-link-post {
+  .card-action {
+    padding: 0;
+    .btn-large {
+      display: block;
+    }
+  }
+}
+
+.tumblr-chat-post {
+  .card-title {
+    text-align: center;
+  }
+  .card-panel {
+    margin: 0;
+    padding: 1em;
+  }
+}
+
+.tumblr-quote-post {
+  .card-content {
+    //animation: pulse 15s infinite alternate;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-size: 2em;
+
+    &:before,
+    &:after {
+      font-size: 1.5em;
+    }
+    &:before { content: '\201C'}
+    &:after { content: '\201D'}
+  }
+}
+
+.tumblr-text-post {
+  .card-title {
+    line-height: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.tumblr-photo-post {
+  .card-image .card-title {
+    margin: 1em;
+    padding: .5em;
+    background-color: rgba(0, 0, 0, .5);
+  }
+}
+
 .inline-code {
   background-color: #fff;
   padding: 1px 5px;

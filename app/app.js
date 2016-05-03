@@ -8,6 +8,7 @@ angular.module('snippetshow', [
   'snippetshow.views.posts',
   'snippetshow.components.tumblrPost',
   'snippetshow.components.dataSource',
+  'snippetshow.components.cosmetics',
   'ng-showdown'
 ])
 

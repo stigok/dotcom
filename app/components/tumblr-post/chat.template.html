@@ -1,0 +1,9 @@
+<div class="card-content">
+  <div ng-show="post.title" class="card-title">
+    {{post.title}}<br>
+    <span class="material-icons">chat_bubble_outline</span>
+  </div>
+  <div class="card-panel lighten-5" ng-repeat="item in post.dialogue track by $index" ng-class="{pink: $index % 2 > 0, 'light-blue': $index % 2 === 0}">
+    <strong>{{item.name}}:</strong> {{item.phrase}}
+  </div>
+</div>
