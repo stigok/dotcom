@@ -18,9 +18,9 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
     });
 }])
 
-.controller('PostsController', ['$scope', '$routeParams', 'DataSource', function ($scope, $routeParams, DataSource) {
+.controller('PostsController', ['$scope', '$routeParams', 'Posts', function ($scope, $routeParams, Posts) {
   const type = $routeParams.type;
-  DataSource.query().then(function (posts) {
+  Posts.query().then(function (posts) {
     if (type) {
       $scope.posts = _.where(posts, {type: type});
     } else {

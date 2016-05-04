@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('snippetshow.components.dataSource', [])
+angular.module('snippetshow.components.posts', [])
 
-.service('DataSource', ['$http', '$q', function ($http, $q) {
+.service('Posts', ['$http', '$q', function ($http, $q) {
   return {
     query: function () {
       /*return $q(function (resolve) {
