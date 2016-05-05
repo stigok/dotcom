@@ -15,13 +15,25 @@ angular.module('snippetshow.components.tumblrPost', [])
     };
   })
 
-  .factory('TumblrPostDirective', function () {
+  .factory('TumblrPostDirective', function ($templateRequest) {
     return function (postType, link) {
       return {
         restrict: 'A',
         require: '^^tumblrPost',
         templateUrl: 'components/tumblr-post/' + postType + '.template.html',
-        link: link // optional
+        compile: function compile() {
+          return {
+            pre: link,
+            post: function (scope, element) {
+              $templateRequest('components/tumblr-post/_post-controls.template.html')
+                .then(function (template) {
+                  var el = angular.element(template);
+                  element.append(el);
+                  el.find('ul.tabs').tabs();
+                });
+            }
+          };
+        }
       };
     };
   })
