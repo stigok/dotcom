@@ -7,6 +7,7 @@ angular.module('snippetshow', [
   'ngSanitize',
   'snippetshow.views.posts',
   'snippetshow.components.tumblrPost',
+  'snippetshow.components.tumblrPostControls',
   'snippetshow.components.posts',
   'snippetshow.components.cosmetics',
   'ng-showdown'

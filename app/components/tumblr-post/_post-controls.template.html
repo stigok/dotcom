@@ -1,8 +1,31 @@
-<div class="card-actions">
+<div class="card">
   <ul class="tabs">
-    <li class="tab"><a href="#test1">Comments</a></li>
-    <li class="tab"><a href="#test2">Likes</a></li>
+    <li class="tab disabled">
+      <a href="#comments">Comments</a>
+    </li>
+    <li class="tab" ng-class="{disabled: post.note_count === 0}">
+      <a class="active" href="#reblogs">{{post.note_count}} Likes / Reblogs</a>
+    </li>
   </ul>
-  <div id="test1">Test 1</div>
-  <div id="test2">Test 2</div>
+  <div class="card-content">
+    <!--<div id="comments">
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <img src="https://api.tumblr.com/v2/blog/stigok.tumblr.com/avatar/40" alt="" class="circle">
+          <span class="title">This is a comment title</span>
+          <p>I really liked what you did there &lt;3</p>
+          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+        </li>
+      </ul>
+    </div>-->
+    <div id="reblogs">
+      <div class="chip" ng-repeat="note in post.notes">
+        <img ng-src="https://api.tumblr.com/v2/blog/{{note.blog_uuid}}/avatar/48" alt="{{note.blog_name}}">
+        {{note.blog_name}}
+        <i class="material-icons" ng-show="note.type === 'like'">thumb_up</i>
+        <i class="material-icons" ng-show="note.type === 'reblog'">repeat</i>
+        <i class="material-icons" ng-show="note.type === 'posted'">present_to_all</i>
+      </div>
+    </div>
+  </div>
 </div>
