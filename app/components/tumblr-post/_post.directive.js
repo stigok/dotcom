@@ -68,16 +68,21 @@ angular.module('snippetshow.components.tumblrPost', [])
     });
   })
 
-  .directive('tumblrPostBody', function ($showdown) {
+  .directive('tumblrPostBody', function ($showdown, $log) {
     return {
       restrict: 'A',
       require: '^tumblrPost',
       scope: {
-        markdown: '<'
+        markdown: '<',
+        html: '<'
       },
       link: function (scope, element) {
+        var html = scope.html || $showdown.makeHtml(scope.markdown);
+
+        $log.log(html);
+
         // Markdown to HTML
-        element.html($showdown.makeHtml(scope.markdown));
+        element.html(html);
 
         // Syntax highlighting
         element.find('pre code').each(function (i, el) {
