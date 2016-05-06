@@ -1,11 +1,14 @@
-<div class="card-content" ng-show="post.title">
-  <span class="card-title">
-    <a href="{{post.url}}" target="_blank" title="{{post.excerpt}}">
-      <i class="material-icons right">open_in_new</i>
-      {{post.title}}
-    </a>
-  </span>
-  <div class="flow-text" tumblr-post-body markdown="post.description"></div>
-</div>
-<div class="card-action">
+<div class="card">
+  <div class="card-content" ng-show="post.title">
+    <span class="card-title">
+      <a href="{{post.url}}" target="_blank" title="{{post.excerpt}}">
+        <i class="material-icons right">open_in_new</i>
+        {{post.title}}
+      </a>
+    </span>
+    <div class="flow-text" tumblr-post-body markdown="post.description"></div>
+  </div>
+  <div class="card-action">
+    actions
+  </div>
 </div>
