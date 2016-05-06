@@ -8,17 +8,18 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
       templateUrl: 'views/posts/posts.html',
       controller: 'PostsController'
     })
+    .when('/posts/details/:postId', {
+      templateUrl: 'views/posts/posts.html',
+      controller: 'PostDetailsController'
+    })
     .when('/posts/:category?', {
       templateUrl: 'views/posts/posts.html',
       controller: 'PostsController'
-    })
-    .when('/posts/:category/:id', {
-      templateUrl: 'views/posts/postDetails.html',
-      controller: 'PostDetailsController'
     });
 }])
 
-.controller('PostsController', ['$scope', '$routeParams', 'Posts', function ($scope, $routeParams, Posts) {
+.controller('PostsController', function ($scope, $routeParams, Posts, $log) {
+  $log.log('Multi post view');
   const type = $routeParams.type;
   Posts.query().then(function (posts) {
     if (type) {
@@ -27,4 +28,16 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
       $scope.posts = posts;
     }
   });
-}]);
+})
+
+.controller('PostDetailsController', function ($scope, $routeParams, Posts, $log) {
+  //const postid = $routeParams.postId;
+  /*Posts.get({id: postid}).then(function (post) {
+    $scope.posts = [post];
+  });*/
+  $log.log('Single post view');
+  $scope.$routeParams = $routeParams;
+  Posts.get($routeParams.postId).then(function (post) {
+    $scope.posts = [post];
+  });
+});

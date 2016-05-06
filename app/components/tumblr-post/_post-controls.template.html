@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card post-controls">
   <ul class="tabs">
     <li class="tab disabled">
       <a href="#comments">Comments</a>
@@ -19,7 +19,7 @@
       </ul>
     </div>-->
     <div id="reblogs">
-      <div class="chip" ng-repeat="note in post.notes">
+      <div class="chip z-depth-1" ng-repeat="note in post.notes">
         <img ng-src="https://api.tumblr.com/v2/blog/{{note.blog_uuid}}/avatar/48" alt="{{note.blog_name}}">
         {{note.blog_name}}
         <i class="material-icons" ng-show="note.type === 'like'">thumb_up</i>
