@@ -9,7 +9,6 @@ angular.module('snippetshow', [
   'snippetshow.components.tumblrPost',
   'snippetshow.components.tumblrPostControls',
   'snippetshow.components.posts',
-  'snippetshow.components.cosmetics',
   'ng-showdown'
 ])
 
