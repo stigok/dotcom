@@ -18,7 +18,7 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
     });
 }])
 
-.controller('PostsController', function ($scope, $routeParams, Posts, $log) {
+.controller('PostsController', function ($scope, $routeParams, Posts, $location, $log) {
   $log.log('Multi post view');
   const type = $routeParams.type;
   Posts.query().then(function (posts) {
@@ -28,13 +28,13 @@ angular.module('snippetshow.views.posts', ['ngRoute'])
       $scope.posts = posts;
     }
   });
+
+  $scope.openDetails = function (id) {
+    $location.path('/posts/details/' + id);
+  };
 })
 
 .controller('PostDetailsController', function ($scope, $routeParams, Posts, $log) {
-  //const postid = $routeParams.postId;
-  /*Posts.get({id: postid}).then(function (post) {
-    $scope.posts = [post];
-  });*/
   $log.log('Single post view');
   $scope.$routeParams = $routeParams;
   Posts.get($routeParams.postId).then(function (post) {
