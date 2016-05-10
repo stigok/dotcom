@@ -147,9 +147,13 @@ module.exports = function (grunt) {
           {src: 'dist/js/snippetshow.js', dest: 'dist/js/snippetshow.js'}
         ]
       }
-    }
+    },
+
+    // Clean up distribution files
+    clean: ['dist/']
   });
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
