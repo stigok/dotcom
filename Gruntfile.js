@@ -7,17 +7,22 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    path: {
+      dist: 'dist',
+      src: 'app',
+      tmp: 'tmp'
+    },
 
     less: {
       development: {
         options: {
           banner: banner + '\n',
-          paths: ['app/css/'],
+          paths: ['<% path.src %>/css/'],
           compress: true,
           ieCompat: false
         },
         files: {
-          'app/css/theme.css': 'app/css/theme.less'
+          '<% path.src %>/css/theme.css': '<% path.src %>/css/theme.less'
         }
       }
     },
@@ -32,22 +37,22 @@ module.exports = function (grunt) {
       },
       dist: {
         src: [
-          'app/components/**/*.js',
-          'app/views/**/*.js',
-          'app/app.js'
+          '<% path.src %>/components/**/*.js',
+          '<% path.src %>/views/**/*.js',
+          '<% path.src %>/app.js'
         ],
-        dest: 'dist/js/snippetshow.min.js'
+        dest: '<% path.dist %>/js/snippetshow.min.js'
       },
       dev: {
         options: {
           beautify: true
         },
         src: [
-          'app/components/**/*.js',
-          'app/views/**/*.js',
-          'app/app.js'
+          '<% path.src %>/components/**/*.js',
+          '<% path.src %>/views/**/*.js',
+          '<% path.src %>/app.js'
         ],
-        dest: 'dist/js/snippetshow.js'
+        dest: '<% path.dist %>/js/snippetshow.js'
       }
     },
 
@@ -61,7 +66,7 @@ module.exports = function (grunt) {
         }
       },
       dev: {
-        files: ['Gruntfile.js', 'app/**/*'],
+        files: ['Gruntfile.js', '<% path.src %>/**/*'],
         tasks: ['development'],
         options: {
           atBegin: true
@@ -84,17 +89,17 @@ module.exports = function (grunt) {
     copy: {
       dist: {
         files: [
-          {expand: true, cwd: 'app/', src: ['**/*.html', '!bower_components/**/*'], dest: 'dist/'},
-          {expand: true, cwd: 'include/js/', src: '*.js', dest: 'dist/js/vendor/'},
-          {src: 'app/css/theme.css', dest: 'dist/css/theme.css'},
-          {src: 'node_modules/normalize.css/normalize.css', dest: 'dist/css/vendor/normalize.css'},
-          {src: 'bower_components/showdown/dist/showdown.min.js', dest: 'dist/js/vendor/showdown.min.js'},
-          {src: 'bower_components/ng-showdown/dist/ng-showdown.min.js', dest: 'dist/js/vendor/ng-showdown.min.js'}
+          {expand: true, cwd: '<% path.src %>/', src: ['**/*.html', '!bower_components/**/*'], dest: '<% path.dist %>/'},
+          {expand: true, cwd: 'include/js/', src: '*.js', dest: '<% path.dist %>/js/vendor/'},
+          {src: '<% path.src %>/css/theme.css', dest: '<% path.dist %>/css/theme.css'},
+          {src: 'node_modules/normalize.css/normalize.css', dest: '<% path.dist %>/css/vendor/normalize.css'},
+          {src: 'bower_components/showdown/<% path.dist %>/showdown.min.js', dest: '<% path.dist %>/js/vendor/showdown.min.js'},
+          {src: 'bower_components/ng-showdown/<% path.dist %>/ng-showdown.min.js', dest: '<% path.dist %>/js/vendor/ng-showdown.min.js'}
         ]
       },
       dev: {
         files: [
-          {expand: true, cwd: 'app/', src: ['api/**/*.json'], dest: 'dist/'}
+          {expand: true, cwd: '<% path.src %>/', src: ['api/**/*.json'], dest: '<% path.dist %>/'}
         ]
       },
       vendor: {
@@ -104,7 +109,7 @@ module.exports = function (grunt) {
             src: [
               'node_modules/normalize.css/normalize.css'
             ],
-            dest: 'dist/css/vendor/'
+            dest: '<% path.dist %>/css/vendor/'
           }
         ]
       }
@@ -125,8 +130,8 @@ module.exports = function (grunt) {
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'},
-          {src: 'dist/js/snippetshow.min.js', dest: 'dist/js/snippetshow.min.js'}
+          {src: '<% path.dist %>/index.html', dest: '<% path.dist %>/index.html'},
+          {src: '<% path.dist %>/js/snippetshow.min.js', dest: '<% path.dist %>/js/snippetshow.min.js'}
         ]
       },
       dev: {
@@ -143,14 +148,14 @@ module.exports = function (grunt) {
           ]
         },
         files: [
-          {src: 'dist/index.html', dest: 'dist/index.html'},
-          {src: 'dist/js/snippetshow.js', dest: 'dist/js/snippetshow.js'}
+          {src: '<% path.dist %>/index.html', dest: '<% path.dist %>/index.html'},
+          {src: '<% path.dist %>/js/snippetshow.js', dest: '<% path.dist %>/js/snippetshow.js'}
         ]
       }
     },
 
     // Clean up distribution files
-    clean: ['dist/']
+    clean: ['<% path.dist %>/']
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
