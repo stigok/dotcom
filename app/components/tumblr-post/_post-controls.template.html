@@ -7,7 +7,7 @@
       <a class="active" href="#reblogs">{{post.note_count}} Likes / Reblogs</a>
     </li>
   </ul>
-  <div class="card-content">
+  <div class="card-content" ng-show="post.note_count > 0">
     <!--<div id="comments">
       <ul class="collection">
         <li class="collection-item avatar">
@@ -26,6 +26,9 @@
         <i class="material-icons" ng-show="note.type === 'reblog'">repeat</i>
         <i class="material-icons" ng-show="note.type === 'posted'">present_to_all</i>
       </div>
+      <p ng-show="post.note_count > 50">
+        ... and <span ng-bind="post.note_count - 50"></span> more
+      </p>
     </div>
   </div>
 </div>
