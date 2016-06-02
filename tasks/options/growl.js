@@ -5,5 +5,9 @@ module.exports = {
   },
   build: {
     title: 'Grunt build task complete'
+  },
+  watch: {
+    title: 'Watch task complete',
+    message: 'hello'
   }
 };

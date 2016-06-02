@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('snippetshow.components.posts', [])
 
 .service('Posts', ['$http', '$q', function ($http, $q) {

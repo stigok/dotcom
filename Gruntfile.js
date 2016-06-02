@@ -27,5 +27,7 @@ module.exports = function (grunt) {
   grunt.util._.extend(config, loadConfig('./tasks/options/'));
 
   grunt.initConfig(config);
-  grunt.loadTasks('tasks');
+
+  // Load all tasks from tasks/ folder
+  grunt.loadTasks('tasks/');
 };

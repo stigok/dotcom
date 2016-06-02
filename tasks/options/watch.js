@@ -1,15 +1,14 @@
 module.exports = {
   css: {
-    files: ['./**/*.less'],
+    files: ['<%= path.src %>/**/*.less'],
     tasks: ['less:development', 'growl:less'],
     options: {
-      spawn: false,
       atBegin: true
     }
   },
   dev: {
-    files: ['Gruntfile.js', '<%= path.src %>/**/*'],
-    tasks: ['build-dev'],
+    files: ['Gruntfile.js', '<%= path.src %>/**/*', '!**/*.less'],
+    tasks: ['build-dev', 'growl:watch'],
     options: {
       atBegin: true
     }
