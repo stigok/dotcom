@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card-image">
+    <img ng-repeat="photo in post.photos track by $index" ng-src="{{photo.original_size.url}}" alt="post photo #{{$index}}">
+    <span class="card-title" ng-show="post.caption.length && post.caption.length < 30">{{post.caption}}</span>
+  </div>
+  <div class="card-content" ng-show="post.caption.length >= 30">
+    <div tumblr-post-body html="post.caption"></div>
+  </div>
+</div>
