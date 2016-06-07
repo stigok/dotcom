@@ -7,7 +7,7 @@ module.exports = {
       ieCompat: false
     },
     files: {
-      '<%= path.src %>/css/theme.css': '<%= path.src %>/css/theme.less'
+      '<%= path.dist %>/css/theme.css': '<%= path.src %>/css/theme.less'
     }
   }
 };

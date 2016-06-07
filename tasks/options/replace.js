@@ -7,8 +7,8 @@ module.exports = {
           replacement: 'min.js'
         },
         {
-          match: 'apiEndpoint',
-          replacement: 'http://api.tumblr.stigok.com'
+          match: 'api-endpoint',
+          replacement: 'http://tumblr.api.stigok.com:8081'
         }
       ]
     },
@@ -25,8 +25,8 @@ module.exports = {
           replacement: 'js'
         },
         {
-          match: 'apiEndpoint',
-          replacement: 'http://tumblrapi.sshow-7/api/tumblr'
+          match: 'api-endpoint',
+          replacement: 'http://tumblr.api.stigok.com:8081'
         }
       ]
     },

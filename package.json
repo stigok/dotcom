@@ -34,6 +34,6 @@
   "scripts": {
     "postinstall": "bower install && grunt build:dist",
     "debug": "grunt build-dev",
-    "develop": "grunt watch:dev & http-server ./dist -a localhost -p 8000"
+    "develop": "grunt watch & http-server ./dist -a localhost -p 8000"
   }
 }
