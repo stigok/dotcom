@@ -18,14 +18,14 @@ module.exports = {
   },
   vendor: {
     files: [
-      {
-        expand: true,
-        flatten: true,
-        src: [
-          'node_modules/normalize.css/normalize.css'
-        ],
-        dest: '<%= path.dist %>/css/vendor/'
-      },
+      //{
+      //  expand: true,
+      //  flatten: true,
+      //  src: [
+      //    'node_modules/normalize.css/normalize.css'
+      //  ],
+      //  dest: '<%= path.dist %>/css/vendor/'
+      //},
       {
         expand: true,
         flatten: true,
