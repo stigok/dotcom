@@ -1,7 +1,7 @@
 module.exports = {
   development: {
     options: {
-      banner: 'sshow fosho\n',
+      banner: '/*sshow fosho*/\n',
       paths: ['<%= path.src %>/css/'],
       compress: true,
       ieCompat: false
