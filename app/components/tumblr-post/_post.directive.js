@@ -79,8 +79,6 @@ angular.module('snippetshow.components.tumblrPost', [])
       link: function (scope, element) {
         var html = scope.html || $showdown.makeHtml(scope.markdown);
 
-        $log.log(html);
-
         // Markdown to HTML
         element.html(html);
 
